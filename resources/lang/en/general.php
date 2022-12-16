@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'code'			        => 'Code',
     'accessories'			=> 'Accessories',
     'activated'			    => 'Activated',
     'accessory'				=> 'Accessory',

@@ -75,6 +75,7 @@ class AssetModelsController extends Controller
         $model->eol = $request->input('eol');
         $model->depreciation_id = $request->input('depreciation_id');
         $model->name = $request->input('name');
+        $model->code = $request->input('code', '');
         $model->model_number = $request->input('model_number');
         $model->manufacturer_id = $request->input('manufacturer_id');
         $model->category_id = $request->input('category_id');
@@ -152,6 +153,7 @@ class AssetModelsController extends Controller
         $model->depreciation_id = $request->input('depreciation_id');
         $model->eol = $request->input('eol');
         $model->name = $request->input('name');
+        $model->code = $request->input('code', '');
         $model->model_number = $request->input('model_number');
         $model->manufacturer_id = $request->input('manufacturer_id');
         $model->category_id = $request->input('category_id');
@@ -375,7 +377,7 @@ class AssetModelsController extends Controller
             $update_array['depreciation_id'] = $request->input('depreciation_id');
         }
 
-        
+
         if (count($update_array) > 0) {
             AssetModel::whereIn('id', $models_raw_array)->update($update_array);
 

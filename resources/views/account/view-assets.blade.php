@@ -43,7 +43,7 @@
             <i class="fas fa-barcode fa-2x" aria-hidden="true"></i>
             </span>
               <span class="hidden-xs hidden-sm">{{ trans('general.assets') }}
-                {!! ($user->assets()->AssetsForShow()->count() > 0 ) ? '<badge class="badge badge-secondary">'.number_format($user->assets()->AssetsForShow()->count()).'</badge>' : '' !!}
+                {!! ($userAssetCount > 0 ) ? '<badge class="badge badge-secondary">'.number_format($userAssetCount).'</badge>' : '' !!}
             </span>
             </a>
           </li>

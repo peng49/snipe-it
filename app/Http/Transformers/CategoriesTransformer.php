@@ -26,6 +26,7 @@ class CategoriesTransformer
             $array = [
                 'id' => (int) $category->id,
                 'name' => e($category->name),
+                'code' => e($category->code),
                 'image' =>   ($category->image) ? Storage::disk('public')->url('categories/'.e($category->image)) : null,
                 'category_type' => ucwords(e($category->category_type)),
                 'has_eula' => ($category->getEula() ? true : false),

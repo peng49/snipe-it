@@ -10,7 +10,7 @@
 @section('inputFields')
 
 @include ('partials.forms.edit.name', ['translated_name' => trans('admin/categories/general.name')])
-
+@include ('partials.forms.edit.code')
 <!-- Type -->
 <div class="form-group {{ $errors->has('category_type') ? ' has-error' : '' }}">
     <label for="category_type" class="col-md-3 control-label">{{ trans('general.type') }}</label>

@@ -66,6 +66,14 @@ class AssetModelPresenter extends Presenter
                 'visible' => true,
             ],
             [
+                'field' => 'code',
+                'searchable' => true,
+                'sortable' => false,
+                'switchable' => true,
+                'title' => trans('general.code'),
+                'visible' => true,
+            ],
+            [
                 'field' => 'assets_count',
                 'searchable' => false,
                 'sortable' => true,

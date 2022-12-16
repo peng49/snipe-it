@@ -28,6 +28,12 @@ class CategoryPresenter extends Presenter
                 'title' => trans('general.name'),
                 'visible' => true,
                 'formatter' => 'categoriesLinkFormatter',
+            ],[
+                'field' => 'code',
+                'searchable' => true,
+                'sortable' => true,
+                'title' => trans('general.code'),
+                'visible' => true
             ], [
                 'field' => 'image',
                 'searchable' => false,

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'code'			        => '编码',
     'accessories'			=> '附属品',
     'activated'			    => '已激活',
     'accessory'				=> '附属品',

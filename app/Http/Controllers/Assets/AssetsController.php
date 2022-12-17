@@ -22,6 +22,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\View;
 use Input;
 use Intervention\Image\Facades\Image;
 use League\Csv\Reader;
@@ -32,7 +33,6 @@ use Response;
 use Slack;
 use Str;
 use TCPDF;
-use View;
 
 /**
  * This class controls all actions related to assets for
@@ -246,14 +246,14 @@ class AssetsController extends Controller {
     /**
      * Returns a view that presents information about an asset for detail view.
      *
-     * @param int $assetId
+     * @param int|string $assetId
      * @return View
      * @since [v1.0]
      * @author [A. Gianotto] [<snipe@snipe.net>]
      */
     public function show($assetId = null)
     {
-        $asset = Asset::withTrashed()->where('id', $assetId)
+        $asset = Asset::withTrashed()->where('id', preg_match('/^\d+$/', $assetId) ? $assetId : 0)
             ->orWhere(function ($query) use ($assetId) {
                 $query->where('asset_tag', $assetId)->whereNull('deleted_at');
             })->first();

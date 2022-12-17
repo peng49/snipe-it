@@ -115,7 +115,6 @@ class Asset extends Depreciable
         'purchase_cost'   => 'numeric|nullable|gte:0',
         'next_audit_date' => 'date|nullable',
         'last_audit_date' => 'date|nullable',
-        'supplier_id'     => 'exists:suppliers,id|nullable',
     ];
 
   /**

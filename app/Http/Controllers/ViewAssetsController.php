@@ -39,8 +39,10 @@ class ViewAssetsController extends Controller
         //直接查询当前用户所有的资产
         $prepare = "SELECT * FROM `assets` WHERE `assigned_to` = ? AND `assigned_type` = ?";
         $user->assets = array_map(function ($object) {
-            $asset = new Asset(json_decode(json_encode($object), true));
-            $asset->physical = $object->physical;
+            $asset = new Asset();
+            foreach (json_decode(json_encode($object), true) as $key => $value) {
+                $asset->$key = $value;
+            }
             return $asset;
         }, DB::select($prepare, [$user->id, User::class]));
         $userAssetCount = DB::select("SELECT count(0) AS c FROM `assets` WHERE `assigned_to` = ? AND `assigned_type` = ?", [$user->id, User::class])[0]->c;
